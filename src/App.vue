@@ -1,26 +1,48 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h1 class="main-title">
+    Math Quiz App
+  </h1>
+  <Quiz 
+    v-if="operator !== null" 
+    :operator="operator"
+    @nullifyOperator="nullifyOperator"
+  />
+  <OperatorSelector 
+    v-else-if="operator === null" 
+    @changeOperator="changeOperator" 
+  />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import OperatorSelector from './components/OperatorSelector.vue'
+import Quiz from './components/Quiz.vue';
 
 export default {
   name: 'App',
+  data() {
+    return {
+      operator: null,
+    }
+  },
+  
+  methods: {
+    changeOperator(operator) {
+      this.operator = operator;
+    },
+
+    nullifyOperator() {
+      this.operator = null;
+    }
+  },
+
   components: {
-    HelloWorld
+    OperatorSelector,
+    Quiz
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
+
 </style>
