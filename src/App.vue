@@ -2,12 +2,12 @@
   <h1 class="main-title">
     Math Quiz App
   </h1>
-  <Quiz 
+  <quiz 
     v-if="operator !== null" 
     :operator="operator"
     @nullifyOperator="nullifyOperator"
   />
-  <OperatorSelector 
+  <operator-selector 
     v-else-if="operator === null" 
     @changeOperator="changeOperator" 
   />
