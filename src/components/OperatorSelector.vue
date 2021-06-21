@@ -5,7 +5,7 @@
 		@click="$emit('changeOperator', operator)"
 	>
 		{{ operatorName }}
-		<br />
+		<br>
 		{{ operator }}
   </button>
 </template>
